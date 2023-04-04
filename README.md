@@ -1,7 +1,6 @@
 # QuaiVatMangMayTinh
 For Computer Network assignment
 
-
 Task 1:
 - The RTSP protocol in the client (named Client.py) — 9/4/2023
 - The RTP packetization in the server (named RtpPacket.py) — 23/4/2023
