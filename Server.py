@@ -18,6 +18,8 @@ class Server:
         while True:
             clientInfo = {}
             clientInfo['rtspSocket'] = rtspSocket.accept()
+            address = clientInfo['rtspSocket'][1]
+            print(f"Connected from {str(address)}")
             ServerWorker(clientInfo).run()
 
 

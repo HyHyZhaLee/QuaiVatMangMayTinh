@@ -27,7 +27,7 @@ class RtpPacket:
         header[0] = header[0] | cc; currFree = 7
         #***********************************************
         header[1] = header[1] | marker << (currFree - 1); currFree -= 1
-        header[1] = header[1] | pt << (currFree - 7); currFree = 7
+        header[1] = header[1] | pt; currFree = 7
         #***********************************************
         header[2] = seqnum >> 8 & 0xFF
         header[3] = seqnum & 0xFF

@@ -1,4 +1,5 @@
 from random import randint
+import pdb
 import sys, traceback, threading, socket
 
 from VideoStream import VideoStream
@@ -34,8 +35,8 @@ class ServerWorker:
         while True:
             data = connSocket.recv(256)
             if data:
-                print("Data received:\n" + data.decode("utf-8"))
-                self.processRtspRequest(data.decode("utf-8"))
+                print("Data received: {}".format(data))
+                self.processRtspRequest(data.decode())
 
     def processRtspRequest(self, data):
         """Process RTSP request sent from the client."""
@@ -123,6 +124,9 @@ class ServerWorker:
                 try:
                     address = self.clientInfo['rtspSocket'][1][0]
                     port = int(self.clientInfo['rtpPort'])
+
+                    # pdb.set_trace()
+
                     self.clientInfo['rtpSocket'].sendto(self.makeRtp(data, frameNumber), (address, port))
                 except:
                     print("Connection Error")
